@@ -1,5 +1,5 @@
 {
 	"name": "smg",
 	"version": "0.0.0",
-	"dependencies": ["tinyobjloader","glfw3","glew","opengl","glm"]
+	"dependencies": ["tinyobjloader","glfw3","glew","opengl","glm","stb"]
 }
