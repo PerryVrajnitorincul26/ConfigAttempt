@@ -1,4 +1,3 @@
-#include <iostream>
 // // Created by perry on 11/18/22.
 //
 // Lab6 - Texturi.cpp : Defines the entry point for the console application.
@@ -23,9 +22,6 @@
 
 #include <stb_image.h>
 
-#pragma comment (lib, "glfw3dll.lib")
-#pragma comment (lib, "glew32.lib")
-#pragma comment (lib, "OpenGL32.lib")
 
 // settings
 const unsigned int SCR_WIDTH = 800;
@@ -237,9 +233,9 @@ const GLchar *VertexShader =
         {
                 "#version 330\n"\
    "layout (location = 0) in vec3 aPos;\n"\
-   "layout (location = 1) in vec3 aColor;\n"\
+   "layout (location = 1) in vec4 aColor;\n"\
    "layout (location = 2) in vec2 aTexCoord;\n"\
-   "out vec3 ourColor;\n"\
+   "out vec4 ourColor;\n"\
    "out vec2 TexCoord;\n"\
    "uniform mat4 ProjMatrix;\n"\
    "uniform mat4 ViewMatrix;\n"\

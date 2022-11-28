@@ -18,7 +18,6 @@ find_package(glfw3 CONFIG REQUIRED)
 find_package(GLEW  REQUIRED)
 
 include_directories(${GLEW_INCLUDE_DIRS})
-set(GLEW_LIBRARY C:\\Users\\Perry\\CLionProjects\\ConfigAttempt\\vcpkg_installed\\x64-windows\\share\\glew)
 add_executable(SMG main.cpp)
 
 target_link_libraries(SMG PRIVATE ${GLEW_LIBRARIES})
