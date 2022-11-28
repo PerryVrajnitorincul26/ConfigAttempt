@@ -16,11 +16,21 @@ find_package(OpenGL REQUIRED)
 find_package(tinyobjloader CONFIG REQUIRED)
 find_package(glfw3 CONFIG REQUIRED)
 find_package(GLEW  REQUIRED)
-
+find_package(imgui CONFIG REQUIRED COMPONENTS core glfw)
 include_directories(${GLEW_INCLUDE_DIRS})
 add_executable(SMG main.cpp)
-
+add_executable(imguitest projimgui.cpp)
 target_link_libraries(SMG PRIVATE ${GLEW_LIBRARIES})
 target_link_libraries(SMG PRIVATE glfw)
 target_link_libraries(SMG PRIVATE tinyobjloader::tinyobjloader)
 target_link_libraries(SMG PRIVATE ${OPENGL_LIBRARIES})
+target_link_directories(SMG PRIVATE ImGui::ImplGlfw)
+
+target_link_libraries(imguitest PRIVATE ${GLEW_LIBRARIES})
+target_link_libraries(imguitest PRIVATE glfw)
+target_link_libraries(imguitest PRIVATE tinyobjloader::tinyobjloader)
+target_link_libraries(imguitest PRIVATE ${OPENGL_LIBRARIES})
+target_link_libraries(imguitest PRIVATE imgui::imgui)
+
+file(COPY shaders DESTINATION .)
+

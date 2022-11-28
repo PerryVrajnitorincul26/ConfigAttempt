@@ -1,5 +1,5 @@
 {
 	"name": "smg",
 	"version": "0.0.0",
-	"dependencies": ["tinyobjloader","glfw3","glew","opengl","glm","stb"]
+	"dependencies": ["tinyobjloader","glfw3","glew","opengl","glm","stb",{"name": "imgui", "features": ["glfw-binding","opengl3-binding"]}]
 }
