@@ -679,4 +679,3 @@ void scroll_callback(GLFWwindow *window, double xoffset, double yOffset) {
 
 void key_callback(GLFWwindow *window, int key, int scancode, int action, int mods) {
 }
-
