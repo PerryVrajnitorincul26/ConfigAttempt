@@ -17,26 +17,23 @@ find_package(OpenGL REQUIRED)
 find_package(tinyobjloader CONFIG REQUIRED)
 find_package(glfw3 CONFIG REQUIRED)
 find_package(GLEW  REQUIRED)
-find_package(imgui CONFIG REQUIRED COMPONENTS core glfw)
-include_directories(${GLEW_INCLUDE_DIRS})
-add_executable(SMG main.cpp)
-add_executable(imguitest projimgui.cpp)
-
 
 IF (UNIX AND NOT APPLE)
     set(GLEW_LIBRARIES GLEW)
 ENDIF ()
-target_link_libraries(SMG PRIVATE ${GLEW_LIBRARIES})
-target_link_libraries(SMG PRIVATE glfw)
-target_link_libraries(SMG PRIVATE tinyobjloader::tinyobjloader)
-target_link_libraries(SMG PRIVATE ${OPENGL_LIBRARIES})
-target_link_directories(SMG PRIVATE ImGui::ImplGlfw)
+find_package(imgui CONFIG REQUIRED COMPONENTS core glfw)
 
-target_link_libraries(imguitest PRIVATE ${GLEW_LIBRARIES})
-target_link_libraries(imguitest PRIVATE glfw)
-target_link_libraries(imguitest PRIVATE tinyobjloader::tinyobjloader)
-target_link_libraries(imguitest PRIVATE ${OPENGL_LIBRARIES})
-target_link_libraries(imguitest PRIVATE imgui::imgui)
+set(ALL_LIBS ${GLEW_LIBRARIES} glfw tinyobjloader::tinyobjloader ${OPENGL_LIBRARIES} imgui::imgui)
+
+add_executable(SMG main.cpp Camera.h Camera.cpp)
+target_link_libraries(SMG PRIVATE ${ALL_LIBS})
+
+add_executable(imguitest projimgui.cpp)
+target_link_libraries(imguitest PRIVATE ${ALL_LIBS})
+
+add_executable(tinTest tinyobjTest.h)
+target_link_libraries(tinTest PRIVATE ${ALL_LIBS})
 
 file(COPY shaders DESTINATION .)
+file(COPY models DESTINATION .)
 
