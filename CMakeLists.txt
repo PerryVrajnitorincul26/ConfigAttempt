@@ -38,4 +38,7 @@ target_link_libraries(tinTest PRIVATE ${ALL_LIBS})
 
 file(COPY shaders DESTINATION .)
 file(COPY models DESTINATION .)
+if (WIN32)
+    file(COPY vcpkg_installed/x64-windows/bin DESTINATION .)
+endif ()
 
