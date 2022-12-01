@@ -25,7 +25,7 @@ find_package(imgui CONFIG REQUIRED COMPONENTS core glfw)
 
 set(ALL_LIBS ${GLEW_LIBRARIES} glfw tinyobjloader::tinyobjloader ${OPENGL_LIBRARIES} imgui::imgui)
 
-add_executable(SMG main.cpp Camera.h Camera.cpp)
+add_executable(SMG main.cpp)
 target_link_libraries(SMG PRIVATE ${ALL_LIBS})
 
 add_executable(imguitest projimgui.cpp)
